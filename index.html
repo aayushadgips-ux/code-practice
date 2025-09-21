@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Explorer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .file-card {
+            background-color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .python-file {
+            border-left: 4px solid #3776ab;
+        }
+        .html-file {
+            border-left: 4px solid #e34c26;
+        }
+        .file-name {
+            font-weight: bold;
+            color: #333;
+        }
+        .file-type {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        .python {
+            background-color: #3776ab;
+            color: white;
+        }
+        .html {
+            background-color: #e34c26;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>File Explorer</h1>
+        <div id="fileList">
+            <script>
+                const files = [
+                    {name: 'ch4 questions.py', type: 'python', category: 'Chapter 4 Exercise'},
+                    {name: 'ch4questionstuple.py', type: 'python', category: 'Chapter 4 Tuple Exercise'},
+                    {name: 'ch6 questions.py', type: 'python', category: 'Chapter 6 Exercise'},
+                    {name: 'chapter3.py', type: 'python', category: 'Chapter 3 Content'},
+                    {name: 'chapter4.py', type: 'python', category: 'Chapter 4 Content'},
+                    {name: 'chapter5.py', type: 'python', category: 'Chapter 5 Content'},
+                    {name: 'chapter6.py', type: 'python', category: 'Chapter 6 Content'},
+                    {name: 'chapter7.py', type: 'python', category: 'Chapter 7 Content'},
+                    {name: 'escape seq.py', type: 'python', category: 'Escape Sequences'},
+                    {name: 'index.html', type: 'html', category: 'File Explorer'},
+                    {name: 'question of dict and set.py', type: 'python', category: 'Dictionary and Sets'},
+                    {name: 'sets.py', type: 'python', category: 'Sets Practice'},
+                    {name: 'strfunction.py', type: 'python', category: 'String Functions'},
+                    {name: 'tuple.py', type: 'python', category: 'Tuple Practice'}
+                ];
+
+                const fileList = document.getElementById('fileList');
+                files.forEach(file => {
+                    const fileCard = document.createElement('div');
+                    fileCard.className = `file-card ${file.type}-file`;
+                    
+                    const fileContent = `
+                        <div class="file-name">${file.name}
+                            <span class="file-type ${file.type}">${file.type}</span>
+                        </div>
+                        <p>Category: ${file.category}</p>
+                    `;
+                    
+                    fileCard.innerHTML = fileContent;
+                    fileList.appendChild(fileCard);
+                });
+            </script>
+        </div>
+    </div>
+</body>
+</html>
