@@ -1,0 +1,3 @@
+#question 3
+race=("aayush",23,43,"great")
+print(type(race))
